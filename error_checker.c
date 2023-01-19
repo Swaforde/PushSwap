@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int check_integer(char **argv, int total)
+int check_integer(char **argv, int total, t_tab *tabList)
 {
     int i;
     int t;
@@ -19,6 +19,7 @@ int check_integer(char **argv, int total)
 				return (0);
 			t ++;
 		}
+		parsing(ft_atoi(argv[i]), tabList);
 		t = 0;
 		i ++;
     }

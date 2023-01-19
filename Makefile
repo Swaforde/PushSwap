@@ -1,5 +1,5 @@
 NAME = push_swap
-SRCS = main.c error_checker.c
+SRCS = main.c error_checker.c parsing.c command1.c
 
 OBJS = ${SRCS:.c=.o}
 CC = gcc

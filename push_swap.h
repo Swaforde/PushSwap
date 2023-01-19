@@ -15,14 +15,20 @@
 
 # include "./Libft/libft.h"
 
+enum e_spec
+{
+    empty = 4444444444
+};
+
 typedef struct s_tab
 {
-    int *tabA;
-    int *tabB;
+    long int *tabA;
+    long int *tabB;
 }   t_tab;
 
-int check_integer(char **argv, int total);
-
+int     check_integer(char **argv, int total, t_tab *tabList);
+void    parsing(int value, t_tab *tabList);
+void    swap_a(t_tab *tabList);
 
 
 #endif
