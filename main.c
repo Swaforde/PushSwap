@@ -33,7 +33,10 @@ int	main(int argc, char *argv[])
         ft_printf("Ok\n");
     else
         ft_printf("Ko\n");
-    swap_a(&tabList);
+    print_tab(tabList.tabA, tabList.max_index);
+    tabList.tabB[0] = 10;
+    tabList.tabA[2] = empty;
+    push_a(&tabList);
     print_tab(tabList.tabA, tabList.max_index);
     ft_printf ("(%d)", count_element(tabList.tabA, &tabList));
     return (1);
