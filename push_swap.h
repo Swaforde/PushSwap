@@ -24,11 +24,14 @@ typedef struct s_tab
 {
     long int *tabA;
     long int *tabB;
+    int max_index;
 }   t_tab;
 
 int     check_integer(char **argv, int total, t_tab *tabList);
+int     count_element(long int *tab, t_tab *tabList);
 void    parsing(int value, t_tab *tabList);
 void    swap_a(t_tab *tabList);
-
+void    swap_b(t_tab *tabList);
+void    swap_s(t_tab *tabList);
 
 #endif

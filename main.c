@@ -1,6 +1,21 @@
 #include "push_swap.h"
 #include "stdio.h"
 
+void    print_tab(long int *tab, int max)
+{
+    int i;
+
+    i = 0;
+    ft_printf("|| Début de l'impression de la pile ||\n\n");
+    while (i < max)
+    {
+        ft_printf ("Index : %d || ",  i);
+        ft_printf ("Value : %d\n", tab[i]);
+        i ++;
+    }
+    ft_printf("\n|| Fin de l'impression de la pile ||\n");
+}
+
 int	main(int argc, char *argv[])
 {
     long int     *tabA;
@@ -11,13 +26,15 @@ int	main(int argc, char *argv[])
     tabB = malloc (argc * sizeof(long int));
     tabList.tabA = tabA;
     tabList.tabB = tabB;
+    tabList.max_index = argc - 1;
     if (argc < 2)
         ft_printf("Merci d'entrer une pile d'entier à trier !");
     if (check_integer(argv, argc, &tabList) == 1)
         ft_printf("Ok\n");
     else
         ft_printf("Ko\n");
-    ft_printf("%d\n", tabList.tabA[0]);
-    ft_printf("%d\n", tabList.tabA[1]);
+    swap_a(&tabList);
+    print_tab(tabList.tabA, tabList.max_index);
+    ft_printf ("(%d)", count_element(tabList.tabA, &tabList));
     return (1);
 }
