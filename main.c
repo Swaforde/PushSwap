@@ -9,8 +9,8 @@ void    print_tab(long int *tab, int max)
     ft_printf("|| Début de l'impression de la pile ||\n\n");
     while (i < max)
     {
-        ft_printf ("Index : %d || ",  i);
-        ft_printf ("Value : %d\n", tab[i]);
+        printf ("Index : %d || ",  i);
+        printf ("Value : %lu\n", tab[i]);
         i ++;
     }
     ft_printf("\n|| Fin de l'impression de la pile ||\n");
@@ -33,9 +33,10 @@ int	main(int argc, char *argv[])
         ft_printf("Ok\n");
     else
         ft_printf("Ko\n");
-    print_tab(tabList.tabA, tabList.max_index);
     tabList.tabB[0] = 10;
     tabList.tabA[2] = empty;
+    print_tab(tabList.tabA, tabList.max_index);
+    ft_printf ("(%d)", count_element(tabList.tabA, &tabList));
     push_a(&tabList);
     print_tab(tabList.tabA, tabList.max_index);
     ft_printf ("(%d)", count_element(tabList.tabA, &tabList));
