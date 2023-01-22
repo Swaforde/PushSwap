@@ -34,5 +34,6 @@ void    swap_a(t_tab *tabList);
 void    swap_b(t_tab *tabList);
 void    swap_s(t_tab *tabList);
 int     push_a(t_tab *tabList);
+int     push_b(t_tab *tabList);
 
 #endif

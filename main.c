@@ -1,6 +1,18 @@
 #include "push_swap.h"
 #include "stdio.h"
 
+void    init_tab(t_tab *tabList)
+{
+    int i;
+
+    i = 0;
+    while (i < tabList->max_index)
+    {
+        tabList->tabB[i] = empty;
+        i ++;
+    }
+}
+
 void    print_tab(long int *tab, int max)
 {
     int i;
@@ -27,18 +39,18 @@ int	main(int argc, char *argv[])
     tabList.tabA = tabA;
     tabList.tabB = tabB;
     tabList.max_index = argc - 1;
+    init_tab(&tabList);
     if (argc < 2)
         ft_printf("Merci d'entrer une pile d'entier à trier !");
     if (check_integer(argv, argc, &tabList) == 1)
         ft_printf("Ok\n");
     else
         ft_printf("Ko\n");
-    tabList.tabB[0] = 10;
-    tabList.tabA[2] = empty;
     print_tab(tabList.tabA, tabList.max_index);
     ft_printf ("(%d)", count_element(tabList.tabA, &tabList));
-    push_a(&tabList);
+    push_b(&tabList);
     print_tab(tabList.tabA, tabList.max_index);
+    print_tab(tabList.tabB, tabList.max_index);
     ft_printf ("(%d)", count_element(tabList.tabA, &tabList));
     return (1);
 }
