@@ -32,13 +32,14 @@ void    print_tab(long int *tab, int max);
 void    clear_tab(long int *tab, int max);
 int     count_element(long int *tab, t_tab *tabList);
 void    parsing(int value, t_tab *tabList);
-void    rotate_a(t_tab *tabList);
-void	rotate_b(t_tab *tabList);
-void	rotate_ab(t_tab *tabList);
+void	rotate_reverse_b(t_tab *tabList);
+void	rotate_reverse_a(tabList);
 void    swap_a(t_tab *tabList);
 void    swap_b(t_tab *tabList);
 void    swap_s(t_tab *tabList);
 int     push_a(t_tab *tabList);
 int     push_b(t_tab *tabList);
+
+void	rotate_bt(t_tab *tabList);
 
 #endif
