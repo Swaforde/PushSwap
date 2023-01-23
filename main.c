@@ -1,6 +1,18 @@
 #include "push_swap.h"
 #include "stdio.h"
 
+void    clear_tab(long int *tab, int max)
+{
+    int i;
+
+    i = 0;
+    while (i < max)
+    {
+        tab[i] = empty;
+        i ++;
+    }
+}
+
 void    init_tab(t_tab *tabList)
 {
     int i;
@@ -47,10 +59,8 @@ int	main(int argc, char *argv[])
     else
         ft_printf("Ko\n");
     print_tab(tabList.tabA, tabList.max_index);
-    ft_printf ("(%d)", count_element(tabList.tabA, &tabList));
-    push_b(&tabList);
+    rotate_a(&tabList);
+    rotate_b(&tabList);
     print_tab(tabList.tabA, tabList.max_index);
-    print_tab(tabList.tabB, tabList.max_index);
-    ft_printf ("(%d)", count_element(tabList.tabA, &tabList));
     return (1);
 }

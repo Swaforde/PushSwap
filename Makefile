@@ -1,5 +1,5 @@
 NAME = push_swap
-SRCS = main.c argv_checking.c parsing.c swap.c checker.c push.c
+SRCS = main.c argv_checking.c parsing.c swap.c checker.c push.c rotate.c
 
 OBJS = ${SRCS:.c=.o}
 CC = gcc

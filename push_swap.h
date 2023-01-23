@@ -20,7 +20,7 @@ enum e_spec
     empty = 4444444444
 };
 
-typedef struct s_tab
+typedef struct s_tabl
 {
     long int *tabA;
     long int *tabB;
@@ -28,8 +28,13 @@ typedef struct s_tab
 }   t_tab;
 
 int     check_integer(char **argv, int total, t_tab *tabList);
+void    print_tab(long int *tab, int max);
+void    clear_tab(long int *tab, int max);
 int     count_element(long int *tab, t_tab *tabList);
 void    parsing(int value, t_tab *tabList);
+void    rotate_a(t_tab *tabList);
+void	rotate_b(t_tab *tabList);
+void	rotate_ab(t_tab *tabList);
 void    swap_a(t_tab *tabList);
 void    swap_b(t_tab *tabList);
 void    swap_s(t_tab *tabList);
