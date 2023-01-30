@@ -6,7 +6,7 @@
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:50:02 by tbouvera          #+#    #+#             */
-/*   Updated: 2023/01/05 11:55:04 by tbouvera         ###   ########.fr       */
+/*   Updated: 2023/01/30 11:56:20 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,16 @@ void    print_tab(long int *tab, int max);
 void    clear_tab(long int *tab, int max);
 int     count_element(long int *tab, t_tab *tabList);
 void    parsing(int value, t_tab *tabList);
-void	rotate_reverse_b(t_tab *tabList);
-void	rotate_reverse_a(tabList);
+void	rotate_b(t_tab *tabList);
+void	rotate_a(t_tab *tabList);
 void    swap_a(t_tab *tabList);
 void    swap_b(t_tab *tabList);
 void    swap_s(t_tab *tabList);
 int     push_a(t_tab *tabList);
 int     push_b(t_tab *tabList);
+void	rotate_reverse_b(t_tab *tabList);
+void	rotate_reverse_a(t_tab *tabList);
 
-void	rotate_bt(t_tab *tabList);
-
+void	rotate_ab(t_tab *tabList);
+void	rotate_reverse_ab(t_tab *tabList);
 #endif

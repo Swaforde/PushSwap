@@ -58,12 +58,9 @@ int	main(int argc, char *argv[])
         ft_printf("Ok\n");
     else
         ft_printf("Ko\n");
-    tabList.tabB[0] = 1;
-    tabList.tabB[1] = 2;
-    tabList.tabB[2] = 3;
-    tabList.tabB[3] = empty;
-    tabList.tabB[4] = empty;
-    rotate_reverse_b(&tabList);
-    print_tab(tabList.tabB, tabList.max_index);
+	tabList.tabA[4] = empty;
+    print_tab(tabList.tabA, tabList.max_index);
+	rotate_a(&tabList);
+    print_tab(tabList.tabA, tabList.max_index);
     return (1);
 }
