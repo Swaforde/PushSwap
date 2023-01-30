@@ -5,10 +5,7 @@ void swap_a(t_tab *tabList)
     int tmp;
 
     if (count_element(tabList->tabA, tabList) <= 1)
-    {
-        ft_printf("\nSwapA Cancelled !\n");
         return ;
-    }
     tmp = tabList->tabA[0];
     tabList->tabA[0] = tabList->tabA[1];
     tabList->tabA[1] = tmp;
@@ -19,10 +16,7 @@ void swap_b(t_tab *tabList)
     int tmp;
 
     if (count_element(tabList->tabB, tabList) <= 1)
-    {
-        ft_printf("\nSwapB Cancelled !\n");
         return ;
-    }
     tmp = tabList->tabB[0];
     tabList->tabB[0] = tabList->tabB[1];
     tabList->tabB[1] = tmp;
