@@ -13,7 +13,7 @@ void    clear_tab(long int *tab, int max)
     }
 }
 
-void    init_tab(t_tab *tabList)
+void       init_tab(t_tab *tabList)
 {
     int i;
 
@@ -34,7 +34,7 @@ void    print_tab(long int *tab, int max)
     while (i < max)
     {
         printf ("Index : %d || ",  i);
-        printf ("Value : %lu\n", tab[i]);
+        printf ("Value : %li\n", tab[i]);
         i ++;
     }
     ft_printf("\n|| Fin de l'impression de la pile ||\n");
@@ -58,9 +58,6 @@ int	main(int argc, char *argv[])
         ft_printf("Ok\n");
     else
         ft_printf("Ko\n");
-	tabList.tabA[4] = empty;
-    print_tab(tabList.tabA, tabList.max_index);
-	rotate_a(&tabList);
-    print_tab(tabList.tabA, tabList.max_index);
+	simplification(&tabList, argc);
     return (1);
 }
