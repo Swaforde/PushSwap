@@ -58,21 +58,6 @@ int	main(int argc, char *argv[])
         ft_printf("Ok\n");
     else
         ft_printf("Ko\n");
-	//simplification(&tabList, argc);
-	push_b(&tabList);
-	print_tab(tabList.tabA, tabList.max_index);
-	print_tab(tabList.tabB, tabList.max_index);
-	push_b(&tabList);
-	print_tab(tabList.tabA, tabList.max_index);
-	print_tab(tabList.tabB, tabList.max_index);
-
-	ft_printf("////////////////\n");
-
-	push_a(&tabList);
-	print_tab(tabList.tabA, tabList.max_index);
-	print_tab(tabList.tabB, tabList.max_index);
-	push_a(&tabList);
-	print_tab(tabList.tabA, tabList.max_index);
-	print_tab(tabList.tabB, tabList.max_index);
+	simplification(&tabList, argc);
     return (1);
 }

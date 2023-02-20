@@ -13,7 +13,7 @@ int    push_a(t_tab *tabList)
             {
                 tabList->tabA[i] = tabList->tabB[0];
                 tabList->tabB[0] = empty;
-				rotate_b(tabList);
+				forced_rotate_b(tabList);
                 return (1);
             }
 			else
@@ -21,8 +21,7 @@ int    push_a(t_tab *tabList)
 				forced_reverse_a(tabList);
                 tabList->tabA[i] = tabList->tabB[0];
                 tabList->tabB[0] = empty;
-				rotate_b(tabList);	
-				ft_printf("jifjgigdfgdfighdf")	;
+				forced_rotate_b(tabList);
 				return (1);
 			}
             i ++;
@@ -44,7 +43,7 @@ int    push_b(t_tab *tabList)
             {
                 tabList->tabB[i] = tabList->tabA[0];
                 tabList->tabA[0] = empty;
-				rotate_a(tabList);
+				forced_rotate_a(tabList);
                 return (1);
             }
 			else
@@ -52,7 +51,7 @@ int    push_b(t_tab *tabList)
 				forced_reverse_b(tabList);
 				tabList->tabB[i] = tabList->tabA[0];
                 tabList->tabA[0] = empty;
-				rotate_a(tabList);
+				forced_rotate_a(tabList);
 				return (1);
 			}
             i ++;
