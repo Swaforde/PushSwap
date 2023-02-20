@@ -59,5 +59,6 @@ int	main(int argc, char *argv[])
     else
         ft_printf("Ko\n");
 	simplification(&tabList, argc);
+	ft_printf("%d", find_same_number(tabList.tabA, 0, &tabList));
     return (1);
 }

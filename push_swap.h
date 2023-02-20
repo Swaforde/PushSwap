@@ -6,7 +6,7 @@
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:50:02 by tbouvera          #+#    #+#             */
-/*   Updated: 2023/02/20 11:08:25 by tbouvera         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:24:47 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ void	forced_rotate_b(t_tab *tabList);
 void	forced_rotate_a(t_tab *tabList);
 void	rotate_ab(t_tab *tabList);
 void	rotate_reverse_ab(t_tab *tabList);
+int		find_same_number(long int *tab, int num, t_tab *tabList);
 #endif

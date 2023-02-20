@@ -47,6 +47,26 @@ void	simplification(t_tab *tabList, int size)
 		tabList->tabA[i] = e;
 		i ++;
 	}
-	print_tab(tabList->tabA, tabList->max_index);
-	print_tab(tmp, tabList->max_index);
+	free (tmp);
+}
+
+int	find_same_number(long int *tab, int num, t_tab *tabList)
+{
+	int i;
+	int s;
+
+	i = 0;
+	s = 0;
+	while (i < count_element(tab, tabList))
+	{
+		if (tab[i] == num)
+			s++;
+		i ++;
+	}
+	return (s);
+}
+
+void sort(t_tab *tabList)
+{
+
 }
