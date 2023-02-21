@@ -58,7 +58,8 @@ int	main(int argc, char *argv[])
         ft_printf("Ok\n");
     else
         ft_printf("Ko\n");
-	simplification(&tabList, argc);
-	ft_printf("%d", find_same_number(tabList.tabA, 0, &tabList));
+	sort(&tabList);
+	print_tab(tabList.tabA, tabList.max_index);
+	print_tab(tabList.tabB, tabList.max_index);
     return (1);
 }
