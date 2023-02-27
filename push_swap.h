@@ -6,7 +6,7 @@
 /*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:50:02 by tbouvera          #+#    #+#             */
-/*   Updated: 2023/02/21 13:59:00 by tbouvera         ###   ########.fr       */
+/*   Updated: 2023/02/27 13:33:55 by tbouvera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ typedef struct s_tabl
     long int *tabB;
     int max_index;
 }   t_tab;
+
+typedef struct s_chunk
+{
+	int index_1;
+	int index_2;
+	int total;
+	int step;
+} t_chunk;
 
 int     check_integer(char **argv, int total, t_tab *tabList);
 void    print_tab(long int *tab, int max);
@@ -49,6 +57,10 @@ void	forced_rotate_a(t_tab *tabList);
 void	rotate_ab(t_tab *tabList);
 void	rotate_reverse_ab(t_tab *tabList);
 int		find_same_number(long int *tab, int num, t_tab *tabList);
-void	sort(t_tab *tabList);
+void sort(t_tab *tabList, t_chunk *chunk);
 int		check_empty_tab(long int *tab, t_tab *tabList);
+void	big_parsing(t_tab *tabList, char *string);
+int	word_count(char const *str, char c);
+int get_max_index (char **argv, t_tab *tabList, int argc);
+void chunk_setup(int total_element, t_chunk *chunk);
 #endif

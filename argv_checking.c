@@ -7,6 +7,11 @@ int check_integer(char **argv, int total, t_tab *tabList)
 
     i = 1;
     t = 0;
+	if (total == 2)
+	{
+		big_parsing(tabList, argv[1]);
+		return (1);
+	}
     while (i < total)
     {
         if (argv[i][0] == '-' || ft_isdigit((int)argv[i][0]) == 1)
@@ -24,4 +29,16 @@ int check_integer(char **argv, int total, t_tab *tabList)
 		i ++;
     }
     return (1);
+}
+
+int get_max_index (char **argv, t_tab *tabList, int argc)
+{
+	int i;
+
+	i = 0;
+	if (argc == 2)
+		i = word_count(argv[1], 32);
+	else
+		i = argc - 1;
+	return (i);
 }

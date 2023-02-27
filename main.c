@@ -45,21 +45,28 @@ int	main(int argc, char *argv[])
     long int     *tabA;
     long int     *tabB;
     t_tab   tabList;
+	int	allowed_size;
+	t_chunk chunk;
 
-    tabA = malloc (argc * sizeof(long int));
-    tabB = malloc (argc * sizeof(long int));
+	allowed_size = get_max_index(argv, &tabList, argc);
+    tabA = malloc (allowed_size * sizeof(long int));
+    tabB = malloc (allowed_size * sizeof(long int));
     tabList.tabA = tabA;
     tabList.tabB = tabB;
-    tabList.max_index = argc - 1;
+    tabList.max_index = get_max_index(argv, &tabList, argc);
+	chunk_setup(allowed_size, &chunk);
     init_tab(&tabList);
     if (argc < 2)
-        ft_printf("Merci d'entrer une pile d'entier à trier !");
+	{
+    	ft_printf("Merci d'entrer une pile d'entier à trier !");
+		return (0);
+	}
     if (check_integer(argv, argc, &tabList) == 1)
-        ft_printf("Ok\n");
+        ft_printf("");
     else
         ft_printf("Ko\n");
-	sort(&tabList);
-	print_tab(tabList.tabA, tabList.max_index);
-	print_tab(tabList.tabB, tabList.max_index);
-    return (1);
+	simplification(&tabList, tabList.max_index);
+	chunk_setup(allowed_size, &chunk);
+	sort(&tabList, &chunk);
+    return (0);
 }

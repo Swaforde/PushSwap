@@ -73,11 +73,11 @@ int find_smaller_num(t_tab *tabList)
 	int tmp2;
 
 	i = 0;
-	tmp = tabList->tabA[0];
+	tmp = tabList->tabB[0];
 	tmp2 = 0;
 	while (i < tabList->max_index)
 	{
-		tmp2 = tabList->tabA[i];
+		tmp2 = tabList->tabB[i];
 		if (tmp2 < tmp)
 			tmp = tmp2;
 		i ++;
@@ -100,7 +100,7 @@ int check_empty_tab(long int *tab, t_tab *tabList)
 	return (1);
 }
 
-void sort(t_tab *tabList)
+/*void sort(t_tab *tabList)
 {
 	int i;
 	int tmp;
@@ -127,4 +127,70 @@ void sort(t_tab *tabList)
 		push_a(tabList);
 		ft_printf("pa\n");
 	}
+}*/
+
+void finish_sort(t_tab *tabList)
+{
+	int tmp;
+
+	tmp = 0;
+	while (check_empty_tab(tabList->tabB, tabList) != 1)
+	{
+		tmp = find_smaller_num(tabList);
+		if (tabList->tabB[0] == tmp)
+		{
+			push_a(tabList);
+			ft_printf("pa\n");
+		}
+		rotate_b(tabList);
+		ft_printf("rb\n");
+	}
+}
+
+void  chunk_setup(int total_element, t_chunk *chunk)
+{
+	chunk->index_1 = 0;
+	if (total_element <= 100)
+	{
+		chunk->total = 4;
+		chunk->index_2 = total_element / 4;
+		chunk->step = total_element / 4;
+	}
+	if (total_element <= 500 && total_element > 100)
+	{
+		chunk->total = 10;
+		chunk->index_2 = total_element / 10;
+		chunk->step = total_element / 10;
+	}
+}
+
+
+void sort(t_tab *tabList, t_chunk *chunk)
+{
+	int i;
+	int tmp;
+
+	i = 0;
+	tmp = 0;
+	while (check_empty_tab(tabList->tabA, tabList) != 1)
+	{
+		if (tabList->tabA[0] >= chunk->index_1 && tabList->tabA[0] <= chunk->index_2)
+		{
+			if (i == chunk->index_2)
+			{
+				chunk->index_1 += chunk->step;
+				chunk->index_2 += chunk->step;
+			}
+			push_b(tabList);
+			ft_printf("pb\n");;
+			i++;
+		}
+		else
+		{
+			rotate_a(tabList);
+			ft_printf("ra\n");
+		}
+	}
+
+	finish_sort(tabList);
 }
