@@ -141,9 +141,9 @@ void  chunk_setup(int total_element, t_chunk *chunk)
 	chunk->index_1 = 0;
 	if (total_element <= 100)
 	{
-		chunk->total = 4;
-		chunk->index_2 = total_element / 4;
-		chunk->step = total_element / 4;
+		chunk->total = 8;
+		chunk->index_2 = total_element / 8;
+		chunk->step = total_element / 8;
 	}
 	if (total_element <= 500 && total_element > 100)
 	{
