@@ -63,4 +63,6 @@ void	big_parsing(t_tab *tabList, char *string);
 int	word_count(char const *str, char c);
 int get_max_index (char **argv, t_tab *tabList, int argc);
 void chunk_setup(int total_element, t_chunk *chunk);
+int find_smaller_num(t_tab *tabList);
+
 #endif

@@ -17,14 +17,13 @@ void	simplification(t_tab *tabList, int size)
 		tmp[i] = tabList->tabA[i];
 		i ++;
 	}
-
 	i = 0;
 
 	while (operation == 1)
 	{
 		operation = 0;
 		i = 0;
-		while (i < (size - 2))
+		while (i < (size - 1))
 		{
 			if (tmp[i] > tmp[i + 1])
 			{
@@ -36,7 +35,6 @@ void	simplification(t_tab *tabList, int size)
 			i ++;
 		}
 	}
-
 	i = 0;
 	e = 0;
 	while (i < size)
@@ -78,7 +76,7 @@ int find_smaller_num(t_tab *tabList)
 	while (i < tabList->max_index)
 	{
 		tmp2 = tabList->tabB[i];
-		if (tmp2 < tmp)
+		if (tmp2 > tmp && tmp2 != 149477148)
 			tmp = tmp2;
 		i ++;
 	}
@@ -100,34 +98,17 @@ int check_empty_tab(long int *tab, t_tab *tabList)
 	return (1);
 }
 
-/*void sort(t_tab *tabList)
+int get_position_of_element(int num, t_tab *tabList)
 {
 	int i;
-	int tmp;
 
 	i = 0;
-	tmp = 0;
-	while (check_empty_tab(tabList->tabA, tabList) != 1)
-	{
-		tmp = find_smaller_num(tabList);
-		if (tabList->tabA[0] == tmp)
-		{
-			push_b(tabList);
-			ft_printf("pb\n");
-		}
-		rotate_a(tabList);
-		ft_printf("ra\n");
+	while (tabList->tabB[i] != num)
 		i ++;
-	}
-
-	i = 0;
-
-	while (tabList->tabB[0] != empty)
-	{
-		push_a(tabList);
-		ft_printf("pa\n");
-	}
-}*/
+	if (i <= (count_element(tabList->tabB, tabList) / 2))
+		return (1);
+	return (0);
+}
 
 void finish_sort(t_tab *tabList)
 {
@@ -137,13 +118,21 @@ void finish_sort(t_tab *tabList)
 	while (check_empty_tab(tabList->tabB, tabList) != 1)
 	{
 		tmp = find_smaller_num(tabList);
-		if (tabList->tabB[0] == tmp)
+		while (tabList->tabB[0] != tmp)
 		{
-			push_a(tabList);
-			ft_printf("pa\n");
+			if (get_position_of_element(tmp, tabList) == 1)
+			{
+				rotate_b(tabList);
+				ft_printf("rb\n");
+			}
+			else
+			{
+				rotate_reverse_b(tabList);
+				ft_printf("rrb\n");
+			}
 		}
-		rotate_b(tabList);
-		ft_printf("rb\n");
+		push_a(tabList);
+		ft_printf("pa\n");
 	}
 }
 
@@ -174,7 +163,7 @@ void sort(t_tab *tabList, t_chunk *chunk)
 	tmp = 0;
 	while (check_empty_tab(tabList->tabA, tabList) != 1)
 	{
-		if (tabList->tabA[0] >= chunk->index_1 && tabList->tabA[0] <= chunk->index_2)
+		if (tabList->tabA[0] <= chunk->index_2)
 		{
 			if (i == chunk->index_2)
 			{
