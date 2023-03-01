@@ -35,3 +35,13 @@ void	rotate_reverse_ab(t_tab *tabList)
 	rotate_reverse_a(tabList);
 	rotate_reverse_b(tabList);
 }
+
+int	get_index_of_element(int num, t_tab *tab_list)
+{
+	int	i;
+
+	i = 0;
+	while (tab_list->tabA[i] != num)
+		i ++;
+	return (i);
+}

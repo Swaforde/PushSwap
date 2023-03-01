@@ -113,3 +113,58 @@ void	sort(t_tab *tabList, t_chunk *chunk)
 	}
 	finish_sort(tabList);
 }
+
+void	small_sort(t_tab *tab_list)
+{
+	if (get_index_of_element(0, tab_list) == 0)
+	{
+		if (tab_list->tabA[1] > tab_list->tabA[2])
+		{
+			rotate_a(tab_list);
+			ft_printf("ra\n");
+			swap_a(tab_list);
+			ft_printf("sa\n");
+			rotate_reverse_a(tab_list);
+			ft_printf("rra\n");
+		}
+		else 
+		{
+			rotate_a(tab_list);
+			ft_printf("ra\n");
+			rotate_a(tab_list);
+			ft_printf("ra\n");
+			rotate_a(tab_list);
+			ft_printf("ra\n");
+		}
+	}
+
+	if (get_index_of_element(0, tab_list) == 1)
+	{
+		if (tab_list->tabA[0] < tab_list->tabA[2])
+		{
+			swap_a(tab_list);
+			ft_printf("sa\n");
+		}
+		else
+		{
+			rotate_a(tab_list);
+			ft_printf("ra\n");
+		}
+	}
+
+	if (get_index_of_element(0, tab_list) == 2)
+	{
+		if (tab_list->tabA[0] > tab_list->tabA[1])
+		{
+			swap_a(tab_list);
+			ft_printf("sa\n");
+			rotate_reverse_a(tab_list);
+			ft_printf("rra\n");
+		}
+		else
+		{
+			rotate_reverse_a(tab_list);
+			ft_printf("rra\n");
+		}
+	}
+}

@@ -57,19 +57,23 @@ int	main(int argc, char *argv[])
 	chunk_setup(allowed_size, &chunk);
 	init_tab(&tab_list);
 	if (argc < 2)
-	{
-		ft_printf("Merci d'entrer une pile d'entier à trier !");
 		return (0);
+	if (check_integer(argv, argc, &tab_list) != 1)
+	{
+		ft_printf("Error\n");
+		exit(0);
 	}
-	if (check_integer(argv, argc, &tab_list) == 1)
-		ft_printf("");
-	else
+	if (check_doublon(&tab_list) == 0)
 	{
 		ft_printf("Error\n");
 		return (0);
 	}
+	print_tab(tab_list.tabA, tab_list.max_index);
 	simplification(&tab_list, tab_list.max_index);
 	chunk_setup(allowed_size, &chunk);
-	sort(&tab_list, &chunk);
+	if (allowed_size > 5)
+		sort(&tab_list, &chunk);
+	else
+		small_sort(&tab_list);
 	return (0);
 }

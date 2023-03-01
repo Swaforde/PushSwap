@@ -1,5 +1,36 @@
 #include "push_swap.h"
 
+int	check_int(t_tab *tab_list)
+{
+	return (1);
+}
+
+int	check_doublon(t_tab *tab_list)
+{
+	int	i;
+	int	t;
+	int tmp;
+	int	tmp2;
+
+	i = 0;
+	t = 0;
+	tmp = 0;
+	tmp2 = 0;
+	while (i < tab_list->max_index)
+	{
+		tmp = tab_list->tabA[i];
+		while (t < tab_list->max_index)
+		{
+			if (tab_list->tabA[t] == tmp && i != t)
+				return 0;
+			t ++;
+		}
+		t = 0;
+		i ++;
+	}
+	return (1);
+}
+
 int	check_integer(char **argv, int total, t_tab *tabList)
 {
 	int	i;
