@@ -47,55 +47,6 @@ void	simplification(t_tab *tabList, int size)
 	free (tmp);
 }
 
-int	find_same_number(long int *tab, int num, t_tab *tabList)
-{
-	int	i;
-	int	s;
-
-	i = 0;
-	s = 0;
-	while (i < count_element(tab, tabList))
-	{
-		if (tab[i] == num)
-			s++;
-		i ++;
-	}
-	return (s);
-}
-
-int	find_smaller_num(t_tab *tabList)
-{
-	int	i;
-	int	tmp;
-	int	tmp2;
-
-	i = 0;
-	tmp = tabList->tabB[0];
-	tmp2 = 0;
-	while (i < tabList->max_index)
-	{
-		tmp2 = tabList->tabB[i];
-		if (tmp2 > tmp && tmp2 != 149477148)
-			tmp = tmp2;
-		i ++;
-	}
-	return (tmp);
-}
-
-int	check_empty_tab(long int *tab, t_tab *tabList)
-{
-	int	i;
-
-	i = 0;
-	while (i < tabList->max_index)
-	{
-		if (tab[i] != empty)
-			return (0);
-		i ++;
-	}
-	return (1);
-}
-
 int	get_position_of_element(int num, t_tab *tabList)
 {
 	int	i;
@@ -131,32 +82,6 @@ void	finish_sort(t_tab *tabList)
 		}
 		push_a(tabList);
 		ft_printf("pa\n");
-	}
-}
-
-void	chunk_setup(int total_element, t_chunk *chunk)
-{
-	chunk->index_1 = 0;
-	if (total_element <= 10)
-	{
-		chunk->total = 1;
-		chunk->index_2 = total_element / 1;
-		chunk->step = total_element / 1;
-		return ;
-	}
-	if (total_element <= 100)
-	{
-		chunk->total = 8;
-		chunk->index_2 = total_element / 8;
-		chunk->step = total_element / 8;
-		return ;
-	}
-	if (total_element <= 500 && total_element > 100)
-	{
-		chunk->total = 10;
-		chunk->index_2 = total_element / 10;
-		chunk->step = total_element / 10;
-		return ;
 	}
 }
 

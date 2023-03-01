@@ -43,3 +43,29 @@ int	get_max_index(char **argv, t_tab *tabList, int argc)
 		i = argc - 1;
 	return (i);
 }
+
+void	chunk_setup(int total_element, t_chunk *chunk)
+{
+	chunk->index_1 = 0;
+	if (total_element <= 10)
+	{
+		chunk->total = 1;
+		chunk->index_2 = total_element / 1;
+		chunk->step = total_element / 1;
+		return ;
+	}
+	if (total_element <= 100)
+	{
+		chunk->total = 8;
+		chunk->index_2 = total_element / 8;
+		chunk->step = total_element / 8;
+		return ;
+	}
+	if (total_element <= 500 && total_element > 100)
+	{
+		chunk->total = 10;
+		chunk->index_2 = total_element / 10;
+		chunk->step = total_element / 10;
+		return ;
+	}
+}

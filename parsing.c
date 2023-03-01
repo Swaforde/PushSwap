@@ -1,10 +1,10 @@
 #include "push_swap.h"
 
-void parsing(int value, t_tab *tabList)
+void	parsing(int value, t_tab *tabList)
 {
-    static int index;
-    tabList->tabA[index] = value;
-    index ++;
+	static int	index;
+	tabList->tabA[index] = value;
+	index ++;
 }
 
 int	word_count(char const *str, char c)
@@ -23,19 +23,18 @@ int	word_count(char const *str, char c)
 	return (word_count);
 }
 
-int big_parsing(t_tab *tabList, char *string)
+int	big_parsing(t_tab *tabList, char *string)
 {
-	char **tab_tmp;
-	int i;
-	int t;
+	char	**tab_tmp;
+	int		i;
+	int		t;
 
 	tab_tmp = ft_split(string, 32);
 	i = 0;
 	t = 0;
-
 	while (tab_tmp[i] != NULL)
 	{
-        if (tab_tmp[i][0] == '-' || ft_isdigit((int)tab_tmp[i][0]) == 1)
+		if (tab_tmp[i][0] == '-' || ft_isdigit((int)tab_tmp[i][0]) == 1)
 			t = 1;
 		else
 			return (0);

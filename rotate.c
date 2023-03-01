@@ -30,36 +30,6 @@ void	rotate_reverse_b(t_tab *tabList)
 	tabList->tabB[i] = tmp;
 }
 
-void forced_reverse_b(t_tab *tabList)
-{
-	long int	tmp;
-	int			i;
-
-	i = tabList->max_index - 1;
-	tmp = tabList->tabB[i];
-	while (i != 0)
-	{
-		tabList->tabB[i] = tabList->tabB[i - 1];
-		i --;
-	}
-	tabList->tabB[i] = tmp;
-}
-
-void forced_reverse_a(t_tab *tabList)
-{
-	long int	tmp;
-	int			i;
-
-	i = tabList->max_index - 1;
-	tmp = tabList->tabA[i];
-	while (i != 0)
-	{
-		tabList->tabA[i] = tabList->tabA[i - 1];
-		i --;
-	}
-	tabList->tabA[i] = tmp;
-}
-
 void	rotate_b(t_tab *tabList)
 {
 	long int	tmp;
@@ -90,44 +60,8 @@ void	rotate_a(t_tab *tabList)
 	tabList->tabA[i - 1] = tmp;
 }
 
-void	forced_rotate_b(t_tab *tabList)
-{
-	long int	tmp;
-	int			i;
-
-	tmp = tabList->tabB[0];
-	i = 1;
-	while (i < tabList->max_index)
-	{
-		tabList->tabB[i - 1] = tabList->tabB[i];
-		i ++;
-	}
-	tabList->tabB[i - 1] = tmp;
-}
-
-void	forced_rotate_a(t_tab *tabList)
-{
-	long int	tmp;
-	int			i;
-
-	tmp = tabList->tabA[0];
-	i = 1;
-	while (i < tabList->max_index)
-	{
-		tabList->tabA[i - 1] = tabList->tabA[i];
-		i ++;
-	}
-	tabList->tabA[i - 1] = tmp;
-}
-
 void	rotate_ab(t_tab *tabList)
 {
 	rotate_a(tabList);
 	rotate_b(tabList);
-}
-
-void	rotate_reverse_ab(t_tab *tabList)
-{
-	rotate_reverse_a(tabList);
-	rotate_reverse_b(tabList);
 }

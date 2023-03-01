@@ -2,8 +2,8 @@
 
 int	count_element(long int *tab, t_tab *tabList)
 {
-	int element;
-	int i;
+	int	element;
+	int	i;
 
 	element = 0;
 	i = 0;
