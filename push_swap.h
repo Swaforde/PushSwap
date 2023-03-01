@@ -59,7 +59,7 @@ void	rotate_reverse_ab(t_tab *tabList);
 int		find_same_number(long int *tab, int num, t_tab *tabList);
 void sort(t_tab *tabList, t_chunk *chunk);
 int		check_empty_tab(long int *tab, t_tab *tabList);
-void	big_parsing(t_tab *tabList, char *string);
+int big_parsing(t_tab *tabList, char *string);
 int	word_count(char const *str, char c);
 int get_max_index (char **argv, t_tab *tabList, int argc);
 void chunk_setup(int total_element, t_chunk *chunk);

@@ -1,72 +1,75 @@
 #include "push_swap.h"
 #include "stdio.h"
 
-void    clear_tab(long int *tab, int max)
+void	clear_tab(long int *tab, int max)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < max)
-    {
-        tab[i] = empty;
-        i ++;
-    }
+	i = 0;
+	while (i < max)
+	{
+		tab[i] = empty;
+		i ++;
+	}
 }
 
-void       init_tab(t_tab *tabList)
+void	init_tab(t_tab *tabList)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < tabList->max_index)
-    {
-        tabList->tabB[i] = empty;
-        i ++;
-    }
+	i = 0;
+	while (i < tabList->max_index)
+	{
+		tabList->tabB[i] = empty;
+		i ++;
+	}
 }
 
-void    print_tab(long int *tab, int max)
+void	print_tab(long int *tab, int max)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    ft_printf("|| Début de l'impression de la pile ||\n\n");
-    while (i < max)
-    {
-        printf ("Index : %d || ",  i);
-        printf ("Value : %li\n", tab[i]);
-        i ++;
-    }
-    ft_printf("\n|| Fin de l'impression de la pile ||\n");
+	i = 0;
+	ft_printf("|| Début de l'impression de la pile ||\n\n");
+	while (i < max)
+	{
+		printf("Index : %d || ", i);
+		printf("Value : %li\n", tab[i]);
+		i ++;
+	}
+	ft_printf("\n|| Fin de l'impression de la pile ||\n");
 }
 
 int	main(int argc, char *argv[])
 {
-    long int     *tabA;
-    long int     *tabB;
-    t_tab   tabList;
-	int	allowed_size;
-	t_chunk chunk;
+	long int	*tab_a;
+	long int	*tab_b;
+	t_tab		tab_list;
+	int			allowed_size;
+	t_chunk		chunk;
 
-	allowed_size = get_max_index(argv, &tabList, argc);
-    tabA = malloc (allowed_size * sizeof(long int));
-    tabB = malloc (allowed_size * sizeof(long int));
-    tabList.tabA = tabA;
-    tabList.tabB = tabB;
-    tabList.max_index = get_max_index(argv, &tabList, argc);
+	allowed_size = get_max_index(argv, &tab_list, argc);
+	tab_a = malloc (allowed_size * sizeof(long int));
+	tab_b = malloc (allowed_size * sizeof(long int));
+	tab_list.tabA = tab_a;
+	tab_list.tabB = tab_b;
+	tab_list.max_index = get_max_index(argv, &tab_list, argc);
 	chunk_setup(allowed_size, &chunk);
-    init_tab(&tabList);
-    if (argc < 2)
+	init_tab(&tab_list);
+	if (argc < 2)
 	{
-    	ft_printf("Merci d'entrer une pile d'entier à trier !");
+		ft_printf("Merci d'entrer une pile d'entier à trier !");
 		return (0);
 	}
-    if (check_integer(argv, argc, &tabList) == 1)
-        ft_printf("");
-    else
-        ft_printf("Ko\n");
-	simplification(&tabList, tabList.max_index);
+	if (check_integer(argv, argc, &tab_list) == 1)
+		ft_printf("");
+	else
+	{
+		ft_printf("Error\n");
+		return (0);
+	}
+	simplification(&tab_list, tab_list.max_index);
 	chunk_setup(allowed_size, &chunk);
-	sort(&tabList, &chunk);
-    return (0);
+	sort(&tab_list, &chunk);
+	return (0);
 }

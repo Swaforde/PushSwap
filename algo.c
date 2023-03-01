@@ -2,11 +2,11 @@
 
 void	simplification(t_tab *tabList, int size)
 {
-	long int *tmp;
-	int	i;
-	int tmp2;
-	int operation;
-	int e;
+	long int	*tmp;
+	int			i;
+	int			tmp2;
+	int			operation;
+	int			e;
 
 	tmp = malloc (size * sizeof(long int));
 	i = 0;
@@ -18,7 +18,6 @@ void	simplification(t_tab *tabList, int size)
 		i ++;
 	}
 	i = 0;
-
 	while (operation == 1)
 	{
 		operation = 0;
@@ -50,8 +49,8 @@ void	simplification(t_tab *tabList, int size)
 
 int	find_same_number(long int *tab, int num, t_tab *tabList)
 {
-	int i;
-	int s;
+	int	i;
+	int	s;
 
 	i = 0;
 	s = 0;
@@ -64,11 +63,11 @@ int	find_same_number(long int *tab, int num, t_tab *tabList)
 	return (s);
 }
 
-int find_smaller_num(t_tab *tabList)
+int	find_smaller_num(t_tab *tabList)
 {
-	int i;
-	int tmp;
-	int tmp2;
+	int	i;
+	int	tmp;
+	int	tmp2;
 
 	i = 0;
 	tmp = tabList->tabB[0];
@@ -80,13 +79,12 @@ int find_smaller_num(t_tab *tabList)
 			tmp = tmp2;
 		i ++;
 	}
-
 	return (tmp);
 }
 
-int check_empty_tab(long int *tab, t_tab *tabList)
+int	check_empty_tab(long int *tab, t_tab *tabList)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < tabList->max_index)
@@ -98,9 +96,9 @@ int check_empty_tab(long int *tab, t_tab *tabList)
 	return (1);
 }
 
-int get_position_of_element(int num, t_tab *tabList)
+int	get_position_of_element(int num, t_tab *tabList)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tabList->tabB[i] != num)
@@ -110,9 +108,9 @@ int get_position_of_element(int num, t_tab *tabList)
 	return (0);
 }
 
-void finish_sort(t_tab *tabList)
+void	finish_sort(t_tab *tabList)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = 0;
 	while (check_empty_tab(tabList->tabB, tabList) != 1)
@@ -136,28 +134,36 @@ void finish_sort(t_tab *tabList)
 	}
 }
 
-void  chunk_setup(int total_element, t_chunk *chunk)
+void	chunk_setup(int total_element, t_chunk *chunk)
 {
 	chunk->index_1 = 0;
+	if (total_element <= 10)
+	{
+		chunk->total = 1;
+		chunk->index_2 = total_element / 1;
+		chunk->step = total_element / 1;
+		return ;
+	}
 	if (total_element <= 100)
 	{
 		chunk->total = 8;
 		chunk->index_2 = total_element / 8;
 		chunk->step = total_element / 8;
+		return ;
 	}
 	if (total_element <= 500 && total_element > 100)
 	{
 		chunk->total = 10;
 		chunk->index_2 = total_element / 10;
 		chunk->step = total_element / 10;
+		return ;
 	}
 }
 
-
-void sort(t_tab *tabList, t_chunk *chunk)
+void	sort(t_tab *tabList, t_chunk *chunk)
 {
-	int i;
-	int tmp;
+	int	i;
+	int	tmp;
 
 	i = 0;
 	tmp = 0;
@@ -171,7 +177,7 @@ void sort(t_tab *tabList, t_chunk *chunk)
 				chunk->index_2 += chunk->step;
 			}
 			push_b(tabList);
-			ft_printf("pb\n");;
+			ft_printf("pb\n");
 			i++;
 		}
 		else
@@ -180,6 +186,5 @@ void sort(t_tab *tabList, t_chunk *chunk)
 			ft_printf("ra\n");
 		}
 	}
-
 	finish_sort(tabList);
 }

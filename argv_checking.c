@@ -1,20 +1,21 @@
 #include "push_swap.h"
 
-int check_integer(char **argv, int total, t_tab *tabList)
+int	check_integer(char **argv, int total, t_tab *tabList)
 {
-    int i;
-    int t;
+	int	i;
+	int	t;
 
-    i = 1;
-    t = 0;
+	i = 1;
+	t = 0;
 	if (total == 2)
 	{
-		big_parsing(tabList, argv[1]);
-		return (1);
+		if (big_parsing(tabList, argv[1]) == 1)
+			return (1);
+		return (0);
 	}
-    while (i < total)
-    {
-        if (argv[i][0] == '-' || ft_isdigit((int)argv[i][0]) == 1)
+	while (i < total)
+	{
+		if (argv[i][0] == '-' || ft_isdigit((int)argv[i][0]) == 1)
 			t = 1;
 		else
 			return (0);
@@ -27,13 +28,13 @@ int check_integer(char **argv, int total, t_tab *tabList)
 		parsing(ft_atoi(argv[i]), tabList);
 		t = 0;
 		i ++;
-    }
-    return (1);
+	}
+	return (1);
 }
 
-int get_max_index (char **argv, t_tab *tabList, int argc)
+int	get_max_index(char **argv, t_tab *tabList, int argc)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (argc == 2)
