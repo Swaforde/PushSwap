@@ -114,9 +114,44 @@ void	sort(t_tab *tabList, t_chunk *chunk)
 	finish_sort(tabList);
 }
 
-void	small_sort(t_tab *tab_list)
+void	sort_5_num(t_tab *tab_list)
 {
-	if (get_index_of_element(0, tab_list) == 0)
+	while (count_element(tab_list->tabA, tab_list) != 3)
+	{
+		if (tab_list->tabA[0] == 1 || tab_list->tabA[0] == 0)
+		{
+			push_b(tab_list);
+			ft_printf("pb\n");
+		}
+		else
+		{
+			if (get_index_of_element(0, tab_list) <= 2 || get_index_of_element(1, tab_list) <= 2)
+			{
+				rotate_a(tab_list);
+				ft_printf("ra\n");
+			}
+			else
+			{
+				rotate_reverse_a(tab_list);
+				ft_printf("rra\n");	
+			}
+		}
+	}
+	if (tab_list->tabB[0] < tab_list->tabB[1])
+	{
+		swap_b(tab_list);
+		ft_printf("sb\n");
+	}
+	small_sort(tab_list, 2);
+	push_a(tab_list);
+	ft_printf("pa\n");
+	push_a(tab_list);
+	ft_printf("pa\n");
+}
+
+void	small_sort(t_tab *tab_list, int low)
+{
+	if (get_index_of_element(low, tab_list) == 0)
 	{
 		if (tab_list->tabA[1] > tab_list->tabA[2])
 		{
@@ -138,7 +173,7 @@ void	small_sort(t_tab *tab_list)
 		}
 	}
 
-	if (get_index_of_element(0, tab_list) == 1)
+	if (get_index_of_element(low, tab_list) == 1)
 	{
 		if (tab_list->tabA[0] < tab_list->tabA[2])
 		{
@@ -152,7 +187,7 @@ void	small_sort(t_tab *tab_list)
 		}
 	}
 
-	if (get_index_of_element(0, tab_list) == 2)
+	if (get_index_of_element(low, tab_list) == 2)
 	{
 		if (tab_list->tabA[0] > tab_list->tabA[1])
 		{

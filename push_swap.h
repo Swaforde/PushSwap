@@ -64,8 +64,10 @@ int	word_count(char const *str, char c);
 int get_max_index (char **argv, t_tab *tabList, int argc);
 void chunk_setup(int total_element, t_chunk *chunk);
 int find_smaller_num(t_tab *tabList);
-void	small_sort(t_tab *tab_list);
+void	small_sort(t_tab *tab_list, int low);
 int	get_index_of_element(int num, t_tab *tab_list);
 int	check_doublon(t_tab *tab_list);
 int	check_int(t_tab *tab_list);
+void	sort_5_num(t_tab *tab_list);
+
 #endif

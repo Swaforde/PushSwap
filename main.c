@@ -68,12 +68,13 @@ int	main(int argc, char *argv[])
 		ft_printf("Error\n");
 		return (0);
 	}
-	print_tab(tab_list.tabA, tab_list.max_index);
 	simplification(&tab_list, tab_list.max_index);
 	chunk_setup(allowed_size, &chunk);
-	if (allowed_size > 5)
-		sort(&tab_list, &chunk);
+	if (allowed_size == 3)
+		small_sort(&tab_list, 0);
+	else if (allowed_size == 5)
+		sort_5_num(&tab_list);
 	else
-		small_sort(&tab_list);
+		sort(&tab_list, &chunk);
 	return (0);
 }
