@@ -57,7 +57,7 @@ int	main(int argc, char *argv[])
 	chunk_setup(allowed_size, &chunk);
 	init_tab(&tab_list);
 	if (argc < 2)
-		return (0);
+		exit (0);
 	if (check_integer(argv, argc, &tab_list) != 1)
 	{
 		ft_printf("Error\n");
@@ -66,7 +66,7 @@ int	main(int argc, char *argv[])
 	if (check_doublon(&tab_list) == 0)
 	{
 		ft_printf("Error\n");
-		return (0);
+		exit (0);
 	}
 	simplification(&tab_list, tab_list.max_index);
 	chunk_setup(allowed_size, &chunk);
@@ -76,5 +76,5 @@ int	main(int argc, char *argv[])
 		sort_5_num(&tab_list);
 	else
 		sort(&tab_list, &chunk);
-	return (0);
+	exit (0);
 }

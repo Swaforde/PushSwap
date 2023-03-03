@@ -69,5 +69,6 @@ int	get_index_of_element(int num, t_tab *tab_list);
 int	check_doublon(t_tab *tab_list);
 int	check_int(t_tab *tab_list);
 void	sort_5_num(t_tab *tab_list);
+int search_from_bottom(int num, t_tab *tab_list, int index_chunk);
 
 #endif
