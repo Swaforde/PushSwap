@@ -25,6 +25,7 @@ void	rotate_reverse_a(t_tab *tabList)
 		i --;
 	}
 	tabList->tab_a[i] = tmp;
+	ft_printf("rra\n");
 }
 
 void	rotate_reverse_b(t_tab *tabList)
@@ -40,6 +41,7 @@ void	rotate_reverse_b(t_tab *tabList)
 		i --;
 	}
 	tabList->tab_b[i] = tmp;
+	ft_printf("rrb\n");	
 }
 
 void	rotate_b(t_tab *tabList)
@@ -55,6 +57,7 @@ void	rotate_b(t_tab *tabList)
 		i ++;
 	}
 	tabList->tab_b[i - 1] = tmp;
+	ft_printf("rb\n");
 }
 
 void	rotate_a(t_tab *tabList)
@@ -70,6 +73,7 @@ void	rotate_a(t_tab *tabList)
 		i ++;
 	}
 	tabList->tab_a[i - 1] = tmp;
+	ft_printf("ra\n");
 }
 
 void	rotate_ab(t_tab *tabList)

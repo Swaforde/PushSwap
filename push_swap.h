@@ -65,12 +65,15 @@ int			get_max_index(char **argv, t_tab *tabList, int argc);
 void		chunk_setup(int total_element, t_chunk *chunk);
 int			find_smaller_num(t_tab *tabList);
 void		small_sort(t_tab *tab_list, int low);
-int			get_index_of_element(int num, t_tab *tab_list);
+int			index_el(int num, t_tab *tab_list);
 int			check_doublon(t_tab *tab_list);
 int			check_int(char *str);
 void		sort_5_num(t_tab *tab_list);
 int			search_from_bottom(int num, t_tab *tab_list, int index_chunk);
 long int	ft_long_atoi(const char *str);
 int			get_position_of_element(int num, t_tab *tabList);
+void		set_value(t_tab *tab_list, long int *tmp, int size);
+void		simple_utils(int operation, int size, int tmp2, long int *tmp);
+void		small_sort_util(t_tab *tab_list);
 
 #endif

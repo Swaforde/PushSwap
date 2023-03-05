@@ -24,6 +24,7 @@ int	push_a(t_tab *tabList)
 	int	i;
 
 	i = 0;
+	ft_printf("pa\n");
 	if (count_element(tabList->tab_b, tabList) != 0)
 	{
 		while (i < tabList->max_index)
@@ -57,6 +58,7 @@ int	push_b(t_tab *tabList)
 	int	i;
 
 	i = 0;
+	ft_printf("pb\n");
 	if (count_element(tabList->tab_a, tabList) != 0)
 	{
 		while (i < tabList->max_index)
