@@ -12,6 +12,23 @@
 
 #include "push_swap.h"
 
+int		is_sorted(t_tab *tab_list)
+{
+	int	i;
+	int	tmp;
+
+	i = 1;
+	tmp = tab_list->tab_a[0];
+	while (i < tab_list->max_index)
+	{
+		if (tab_list->tab_a[i] < tmp)
+			return (0);
+		i ++;
+		tmp = tab_list->tab_a[i - 1];
+	}
+	return (1);
+}
+
 void	clear_tab(long int *tab, int max)
 {
 	int	i;
@@ -66,6 +83,8 @@ int	main(int argc, char *argv[])
 	}
 	simplification(&tab_list, tab_list.max_index);
 	chunk_setup(allowed_size, &chunk);
+	if (is_sorted(&tab_list) == 1)
+		exit (0);
 	if (allowed_size == 3)
 		small_sort(&tab_list, 0);
 	else if (allowed_size == 5)
