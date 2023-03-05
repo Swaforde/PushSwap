@@ -27,3 +27,26 @@ int	count_element(long int *tab, t_tab *tabList)
 	}
 	return (element);
 }
+
+char	**free_tab(char **ptr)
+{
+	int	i;
+
+	i = 0;
+	while (ptr[i])
+	{
+		free(ptr[i]);
+		ptr[i] = NULL;
+		i++;
+	}
+	free(ptr);
+	ptr = NULL;
+	return (ptr);
+}
+
+void	setup(t_tab *tab_list, int argc, long int *tab_a, long int *tab_b)
+{
+	tab_list->tab_a = tab_a;
+	tab_list->tab_b = tab_b;
+	tab_list->total = argc;
+}

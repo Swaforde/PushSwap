@@ -78,5 +78,7 @@ void		simple_utils(int operation, int size, int tmp2, long int *tmp);
 void		small_sort_util(t_tab *tab_list);
 void		parsing_util(char *string, t_tab *tab_list, char **tab_tmp);
 void		exit_program(void);
+void		setup(t_tab *tab_list, int argc, long int *tab_a, long int *tab_b);
+char		**free_tab(char **ptr);
 
 #endif

@@ -20,6 +20,8 @@ void	simplification(t_tab *tabList, int size)
 	int			operation;
 
 	tmp = malloc (size * sizeof(long int));
+	if (!tmp)
+		return ;
 	i = 0;
 	tmp2 = 0;
 	operation = 1;
@@ -32,6 +34,7 @@ void	simplification(t_tab *tabList, int size)
 	simple_utils(operation, size, tmp2, tmp);
 	set_value(tabList, tmp, size);
 	free (tmp);
+	tmp = NULL;
 }
 
 void	finish_sort(t_tab *tabList)

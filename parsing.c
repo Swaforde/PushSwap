@@ -41,22 +41,25 @@ int	big_parsing(t_tab *tabList, char *string, int i, int t)
 	char	**tab_tmp;
 
 	tab_tmp = ft_split(string, 32);
+	if (!tab_tmp)
+		return (0);
 	while (tab_tmp[i] != NULL)
 	{
 		if (tab_tmp[i][0] == '-' || ft_isdigit((int)tab_tmp[i][0]) == 1)
 			t = 1;
 		else
-			return (0);
+			exit_program();
 		while (tab_tmp[i][t] != '\0')
 		{
 			if (ft_isdigit((int)tab_tmp[i][t]) == 0)
-				return (0);
+				exit_program();
 			t ++;
 		}
 		if (check_int(tab_tmp[i]) == 0)
-			return (0);
+			exit_program();
 		i ++;
 	}
 	parsing_util(string, tabList, tab_tmp);
+	tab_tmp = free_tab(tab_tmp);
 	return (1);
 }

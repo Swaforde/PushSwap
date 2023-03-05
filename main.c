@@ -77,10 +77,12 @@ int	main(int argc, char *argv[])
 
 	allowed_size = get_max_index(argv, &tab_list, argc);
 	tab_a = malloc (allowed_size * sizeof(long int));
+	if (!tab_a)
+		return (0);
 	tab_b = malloc (allowed_size * sizeof(long int));
-	tab_list.tab_a = tab_a;
-	tab_list.tab_b = tab_b;
-	tab_list.total = argc;
+	if (!tab_b)
+		return (0);
+	setup(&tab_list, argc, tab_a, tab_b);
 	tab_list.max_index = get_max_index(argv, &tab_list, argc);
 	chunk_setup(allowed_size, &chunk);
 	init_tab(&tab_list);
