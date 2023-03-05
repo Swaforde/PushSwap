@@ -1,7 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   argv_checking.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/10/18 10:43:06 by tbouvera         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	check_int(t_tab *tab_list)
+int	check_int(char *str)
 {
+	long int i;
+	i = ft_long_atoi(str);
+	if (i > 2147483647 || i < -2147483648)
+		return (0);
 	return (1);
 }
 
@@ -18,10 +34,10 @@ int	check_doublon(t_tab *tab_list)
 	tmp2 = 0;
 	while (i < tab_list->max_index)
 	{
-		tmp = tab_list->tabA[i];
+		tmp = tab_list->tab_a[i];
 		while (t < tab_list->max_index)
 		{
-			if (tab_list->tabA[t] == tmp && i != t)
+			if (tab_list->tab_a[t] == tmp && i != t)
 				return 0;
 			t ++;
 		}
@@ -56,6 +72,8 @@ int	check_integer(char **argv, int total, t_tab *tabList)
 				return (0);
 			t ++;
 		}
+		if (check_int(argv[i]) == 0)
+			return (0);
 		parsing(ft_atoi(argv[i]), tabList);
 		t = 0;
 		i ++;

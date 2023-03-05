@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/10/18 10:43:06 by tbouvera         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-#include "stdio.h"
 
 void	clear_tab(long int *tab, int max)
 {
@@ -20,24 +31,9 @@ void	init_tab(t_tab *tabList)
 	i = 0;
 	while (i < tabList->max_index)
 	{
-		tabList->tabB[i] = empty;
+		tabList->tab_b[i] = empty;
 		i ++;
 	}
-}
-
-void	print_tab(long int *tab, int max)
-{
-	int	i;
-
-	i = 0;
-	ft_printf("|| Début de l'impression de la pile ||\n\n");
-	while (i < max)
-	{
-		printf("Index : %d || ", i);
-		printf("Value : %li\n", tab[i]);
-		i ++;
-	}
-	ft_printf("\n|| Fin de l'impression de la pile ||\n");
 }
 
 int	main(int argc, char *argv[])
@@ -51,8 +47,8 @@ int	main(int argc, char *argv[])
 	allowed_size = get_max_index(argv, &tab_list, argc);
 	tab_a = malloc (allowed_size * sizeof(long int));
 	tab_b = malloc (allowed_size * sizeof(long int));
-	tab_list.tabA = tab_a;
-	tab_list.tabB = tab_b;
+	tab_list.tab_a = tab_a;
+	tab_list.tab_b = tab_b;
 	tab_list.max_index = get_max_index(argv, &tab_list, argc);
 	chunk_setup(allowed_size, &chunk);
 	init_tab(&tab_list);

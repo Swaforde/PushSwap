@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/10/18 10:43:06 by tbouvera         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	simplification(t_tab *tabList, int size)
@@ -12,9 +24,9 @@ void	simplification(t_tab *tabList, int size)
 	i = 0;
 	tmp2 = 0;
 	operation = 1;
-	while (i < count_element(tabList->tabA, tabList))
+	while (i < count_element(tabList->tab_a, tabList))
 	{
-		tmp[i] = tabList->tabA[i];
+		tmp[i] = tabList->tab_a[i];
 		i ++;
 	}
 	i = 0;
@@ -39,24 +51,12 @@ void	simplification(t_tab *tabList, int size)
 	while (i < size)
 	{
 		e = 0;
-		while (tabList->tabA[i] != tmp[e])
+		while (tabList->tab_a[i] != tmp[e])
 			e ++;
-		tabList->tabA[i] = e;
+		tabList->tab_a[i] = e;
 		i ++;
 	}
 	free (tmp);
-}
-
-int	get_position_of_element(int num, t_tab *tabList)
-{
-	int	i;
-
-	i = 0;
-	while (tabList->tabB[i] != num)
-		i ++;
-	if (i <= (count_element(tabList->tabB, tabList) / 2))
-		return (1);
-	return (0);
 }
 
 void	finish_sort(t_tab *tabList)
@@ -64,10 +64,10 @@ void	finish_sort(t_tab *tabList)
 	int	tmp;
 
 	tmp = 0;
-	while (check_empty_tab(tabList->tabB, tabList) != 1)
+	while (check_empty_tab(tabList->tab_b, tabList) != 1)
 	{
 		tmp = find_smaller_num(tabList);
-		while (tabList->tabB[0] != tmp)
+		while (tabList->tab_b[0] != tmp)
 		{
 			if (get_position_of_element(tmp, tabList) == 1)
 			{
@@ -92,9 +92,9 @@ void	sort(t_tab *tabList, t_chunk *chunk)
 
 	i = 0;
 	tmp = 0;
-	while (check_empty_tab(tabList->tabA, tabList) != 1)
+	while (check_empty_tab(tabList->tab_a, tabList) != 1)
 	{
-		if (tabList->tabA[0] <= chunk->index_2)
+		if (tabList->tab_a[0] <= chunk->index_2)
 		{
 			if (i == chunk->index_2)
 			{
@@ -116,9 +116,9 @@ void	sort(t_tab *tabList, t_chunk *chunk)
 
 void	sort_5_num(t_tab *tab_list)
 {
-	while (count_element(tab_list->tabA, tab_list) != 3)
+	while (count_element(tab_list->tab_a, tab_list) != 3)
 	{
-		if (tab_list->tabA[0] == 1 || tab_list->tabA[0] == 0)
+		if (tab_list->tab_a[0] == 1 || tab_list->tab_a[0] == 0)
 		{
 			push_b(tab_list);
 			ft_printf("pb\n");
@@ -133,11 +133,11 @@ void	sort_5_num(t_tab *tab_list)
 			else
 			{
 				rotate_reverse_a(tab_list);
-				ft_printf("rra\n");	
+				ft_printf("rra\n");
 			}
 		}
 	}
-	if (tab_list->tabB[0] < tab_list->tabB[1])
+	if (tab_list->tab_b[0] < tab_list->tab_b[1])
 	{
 		swap_b(tab_list);
 		ft_printf("sb\n");
@@ -153,7 +153,7 @@ void	small_sort(t_tab *tab_list, int low)
 {
 	if (get_index_of_element(low, tab_list) == 0)
 	{
-		if (tab_list->tabA[1] > tab_list->tabA[2])
+		if (tab_list->tab_a[1] > tab_list->tab_a[2])
 		{
 			rotate_a(tab_list);
 			ft_printf("ra\n");
@@ -162,7 +162,7 @@ void	small_sort(t_tab *tab_list, int low)
 			rotate_reverse_a(tab_list);
 			ft_printf("rra\n");
 		}
-		else 
+		else
 		{
 			rotate_a(tab_list);
 			ft_printf("ra\n");
@@ -172,10 +172,9 @@ void	small_sort(t_tab *tab_list, int low)
 			ft_printf("ra\n");
 		}
 	}
-
 	if (get_index_of_element(low, tab_list) == 1)
 	{
-		if (tab_list->tabA[0] < tab_list->tabA[2])
+		if (tab_list->tab_a[0] < tab_list->tab_a[2])
 		{
 			swap_a(tab_list);
 			ft_printf("sa\n");
@@ -186,10 +185,9 @@ void	small_sort(t_tab *tab_list, int low)
 			ft_printf("ra\n");
 		}
 	}
-
 	if (get_index_of_element(low, tab_list) == 2)
 	{
-		if (tab_list->tabA[0] > tab_list->tabA[1])
+		if (tab_list->tab_a[0] > tab_list->tab_a[1])
 		{
 			swap_a(tab_list);
 			ft_printf("sa\n");

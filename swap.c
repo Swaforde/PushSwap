@@ -1,25 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/10/18 10:43:06 by tbouvera         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	swap_a(t_tab *tabList)
 {
 	int	tmp;
 
-	if (count_element(tabList->tabA, tabList) <= 1)
+	if (count_element(tabList->tab_a, tabList) <= 1)
 		return ;
-	tmp = tabList->tabA[0];
-	tabList->tabA[0] = tabList->tabA[1];
-	tabList->tabA[1] = tmp;
+	tmp = tabList->tab_a[0];
+	tabList->tab_a[0] = tabList->tab_a[1];
+	tabList->tab_a[1] = tmp;
 }
 
 void	swap_b(t_tab *tabList)
 {
 	int	tmp;
 
-	if (count_element(tabList->tabB, tabList) <= 1)
+	if (count_element(tabList->tab_b, tabList) <= 1)
 		return ;
-	tmp = tabList->tabB[0];
-	tabList->tabB[0] = tabList->tabB[1];
-	tabList->tabB[1] = tmp;
+	tmp = tabList->tab_b[0];
+	tabList->tab_b[0] = tabList->tab_b[1];
+	tabList->tab_b[1] = tmp;
 }
 
 void	swap_s(t_tab *tabList)

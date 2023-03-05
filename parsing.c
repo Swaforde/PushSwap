@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbouvera <tbouvera@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/17 11:53:03 by tbouvera          #+#    #+#             */
+/*   Updated: 2022/10/18 10:43:06 by tbouvera         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	parsing(int value, t_tab *tabList)
 {
 	static int	index;
-	tabList->tabA[index] = value;
+	tabList->tab_a[index] = value;
 	index ++;
 }
 
@@ -44,13 +56,14 @@ int	big_parsing(t_tab *tabList, char *string)
 				return (0);
 			t ++;
 		}
+		if (check_int(tab_tmp[i]) == 0)
+			return (0);
 		i ++;
 	}
-
 	i = 0;
 	while (i < word_count(string, 32))
 	{
-		tabList->tabA[i] = ft_atoi(tab_tmp[i]);
+		tabList->tab_a[i] = ft_atoi(tab_tmp[i]);
 		i ++;
 	}
 	return (1);
