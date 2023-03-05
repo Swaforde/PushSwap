@@ -41,7 +41,7 @@ void	rotate_reverse_b(t_tab *tabList)
 		i --;
 	}
 	tabList->tab_b[i] = tmp;
-	ft_printf("rrb\n");	
+	ft_printf("rrb\n");
 }
 
 void	rotate_b(t_tab *tabList)

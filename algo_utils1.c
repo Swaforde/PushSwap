@@ -67,3 +67,21 @@ void	small_sort_util(t_tab *tab_list)
 		rotate_a(tab_list);
 	}
 }
+
+void	parsing_util(char *string, t_tab *tab_list, char **tab_tmp)
+{
+	int	i;
+
+	i = 0;
+	while (i < word_count(string, 32))
+	{
+		tab_list->tab_a[i] = ft_atoi(tab_tmp[i]);
+		i ++;
+	}
+}
+
+void	exit_program(void)
+{
+	ft_printf("Error\n");
+	exit (0);
+}

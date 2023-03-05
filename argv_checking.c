@@ -14,7 +14,8 @@
 
 int	check_int(char *str)
 {
-	long int i;
+	long int	i;
+
 	i = ft_long_atoi(str);
 	if (i > 2147483647 || i < -2147483648)
 		return (0);
@@ -25,7 +26,7 @@ int	check_doublon(t_tab *tab_list)
 {
 	int	i;
 	int	t;
-	int tmp;
+	int	tmp;
 	int	tmp2;
 
 	i = 0;
@@ -38,7 +39,7 @@ int	check_doublon(t_tab *tab_list)
 		while (t < tab_list->max_index)
 		{
 			if (tab_list->tab_a[t] == tmp && i != t)
-				return 0;
+				return (0);
 			t ++;
 		}
 		t = 0;
@@ -47,20 +48,15 @@ int	check_doublon(t_tab *tab_list)
 	return (1);
 }
 
-int	check_integer(char **argv, int total, t_tab *tabList)
+int	check_integer(char **argv, t_tab *tabList, int i, int t)
 {
-	int	i;
-	int	t;
-
-	i = 1;
-	t = 0;
-	if (total == 2)
+	if (tabList->total == 2)
 	{
-		if (big_parsing(tabList, argv[1]) == 1)
+		if (big_parsing(tabList, argv[1], 0, 0) == 1)
 			return (1);
 		return (0);
 	}
-	while (i < total)
+	while (i < tabList->total)
 	{
 		if (argv[i][0] == '-' || ft_isdigit((int)argv[i][0]) == 1)
 			t = 1;

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int		is_sorted(t_tab *tab_list)
+int	is_sorted(t_tab *tab_list)
 {
 	int	i;
 	int	tmp;
@@ -53,6 +53,20 @@ void	init_tab(t_tab *tabList)
 	}
 }
 
+void	start_sort(t_tab *tab_list, t_chunk *chunk, int allowed_size)
+{
+	simplification(tab_list, tab_list->max_index);
+	chunk_setup(allowed_size, chunk);
+	if (is_sorted(tab_list) == 1)
+		exit (0);
+	if (allowed_size == 3)
+		small_sort(tab_list, 0);
+	else if (allowed_size == 5)
+		sort_5_num(tab_list);
+	else
+		sort(tab_list, chunk);
+}
+
 int	main(int argc, char *argv[])
 {
 	long int	*tab_a;
@@ -66,30 +80,16 @@ int	main(int argc, char *argv[])
 	tab_b = malloc (allowed_size * sizeof(long int));
 	tab_list.tab_a = tab_a;
 	tab_list.tab_b = tab_b;
+	tab_list.total = argc;
 	tab_list.max_index = get_max_index(argv, &tab_list, argc);
 	chunk_setup(allowed_size, &chunk);
 	init_tab(&tab_list);
 	if (argc < 2)
 		exit (0);
-	if (check_integer(argv, argc, &tab_list) != 1)
-	{
-		ft_printf("Error\n");
-		exit(0);
-	}
+	if (check_integer(argv, &tab_list, 1, 0) != 1)
+		exit_program();
 	if (check_doublon(&tab_list) == 0)
-	{
-		ft_printf("Error\n");
-		exit (0);
-	}
-	simplification(&tab_list, tab_list.max_index);
-	chunk_setup(allowed_size, &chunk);
-	if (is_sorted(&tab_list) == 1)
-		exit (0);
-	if (allowed_size == 3)
-		small_sort(&tab_list, 0);
-	else if (allowed_size == 5)
-		sort_5_num(&tab_list);
-	else
-		sort(&tab_list, &chunk);
+		exit_program();
+	start_sort(&tab_list, &chunk, allowed_size);
 	exit (0);
 }

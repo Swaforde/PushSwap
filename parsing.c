@@ -15,6 +15,7 @@
 void	parsing(int value, t_tab *tabList)
 {
 	static int	index;
+
 	tabList->tab_a[index] = value;
 	index ++;
 }
@@ -35,15 +36,11 @@ int	word_count(char const *str, char c)
 	return (word_count);
 }
 
-int	big_parsing(t_tab *tabList, char *string)
+int	big_parsing(t_tab *tabList, char *string, int i, int t)
 {
 	char	**tab_tmp;
-	int		i;
-	int		t;
 
 	tab_tmp = ft_split(string, 32);
-	i = 0;
-	t = 0;
 	while (tab_tmp[i] != NULL)
 	{
 		if (tab_tmp[i][0] == '-' || ft_isdigit((int)tab_tmp[i][0]) == 1)
@@ -60,11 +57,6 @@ int	big_parsing(t_tab *tabList, char *string)
 			return (0);
 		i ++;
 	}
-	i = 0;
-	while (i < word_count(string, 32))
-	{
-		tabList->tab_a[i] = ft_atoi(tab_tmp[i]);
-		i ++;
-	}
+	parsing_util(string, tabList, tab_tmp);
 	return (1);
 }
